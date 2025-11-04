@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FE AROME DE RAI S.R.L</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff9f0;
+            color: #5a3921;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #8b4513;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #a0522d;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #8b4513;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.7)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        
+        .order-btn {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #8b4513;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .order-btn:hover {
+            background-color: #ffed4a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 40px 0;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #ffd700;
+            margin: 10px auto;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #8b4513;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #a0522d;
+            margin: 10px 0;
+        }
+        
+        .product-code {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Organigrama */
+        .organigrama {
+            background-color: #f5e6d3;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .org-level {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        .org-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+        
+        .org-position {
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+        
+        .org-name {
+            color: #5a3921;
+        }
+        
+        /* Program Section */
+        .program-section {
+            background-color: #f5e6d3;
+            padding: 40px 20px;
+            border-radius: 8px;
+        }
+        
+        .program-table {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        
+        .program-table th, .program-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .program-table th {
+            background-color: #8b4513;
+            color: white;
+        }
+        
+        .program-table tr:nth-child(even) {
+            background-color: #f9f1e6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #5a3921;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #8b4513;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #ffed4a;
+            transform: translateY(-2px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>FE AROME DE RAI S.R.L</h1>
+                <p class="slogan">COPT CU DRAGOSTE, SERVIT CU ZÂMBET</p>
+            </div>
+            <div class="contact-info">
+                <p>Sebes, str. Viilor nr. 2</p>
+                <p>Tel: 0770 430 581</p>
+                <p>Email: arome.de.rai08@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#acasa">Acasă</a></li>
+                <li><a href="#produse">Produse</a></li>
+                <li><a href="#organigrama">Echipa</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="acasa">
+        <div class="container">
+            <h2>Bunătăți proaspete zilnic</h2>
+            <p>Descoperă magia prăjiturilor, plăcintelor și produselor de patiserie pregătite cu pasiune în atelierul nostru.</p>
+            <a href="https://www.example.com/comanda-online" class="order-btn" target="_blank">COMANDA ONLINE ACUM</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produse" class="container">
+        <h2>Produsele Noastre</h2>
+        <div class="products-grid">
+            <!-- Briose cu vanilie -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1557925923-3d8f496de0d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>BRIOȘE CU VANILIE</h3>
+                    <p>Blat pufos de cupcake cu aromă de vanilie</p>
+                    <p>TOPPING: Cremă de unt, esență de vanilie, decor din zahăr colorat</p>
+                    <p class="product-price">2 RON/BUC | 25 RON/KG</p>
+                    <p class="product-code">Cod: 001</p>
+                </div>
+            </div>
+            
+            <!-- Ecler cu ciocolata -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>ECLER CU CIOCOLATĂ</h3>
+                    <p>Aluat opărit, cremă fină de vanilie</p>
+                    <p>TOPPING: Glazură de ciocolată neagră</p>
+                    <p class="product-price">3 RON/BUC | 30 RON/KG</p>
+                    <p class="product-code">Cod: 002</p>
+                </div>
+            </div>
+            
+            <!-- Prăjitură cu fructe de pădure -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>PRĂJITURĂ CU FRUCTE DE PĂDURE</h3>
+                    <p>Blat pufos cu iaurt, fructe de pădure proaspete</p>
+                    <p>TOPPING: Jeleu de fructe și zahăr pudră</p>
+                    <p class="product-price">3 RON/BUC | 33 RON/KG</p>
+                    <p class="product-code">Cod: 003</p>
+                </div>
+            </div>
+            
+            <!-- Cheesecake cu zmeura -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>CHEESECAKE CU ZMEURĂ</h3>
+                    <p>Bază din biscuiți digestivi, cremă de brânză fină</p>
+                    <p>TOPPING: Sos de zmeură natural</p>
+                    <p class="product-price">5 RON/BUC | 40 RON/KG</p>
+                    <p class="product-code">Cod: 004</p>
+                </div>
+            </div>
+            
+            <!-- Briose cu afine -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>BRIOȘE CU AFINE</h3>
+                    <p>Blat pufos de cupcake cu afine</p>
+                    <p>TOPPING: Glazură de vanilie și afine proaspete</p>
+                    <p class="product-price">2 RON/BUC | 25 RON/KG</p>
+                    <p class="product-code">Cod: 006</p>
+                </div>
+            </div>
+            
+            <!-- Brownie cu nuci -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>BROWNIE CU NUCI</h3>
+                    <p>Blat dens de ciocolată și nuci crocante</p>
+                    <p>TOPPING: Glazură de ciocolată</p>
+                    <p class="product-price">3 RON/BUC | 30 RON/KG</p>
+                    <p class="product-code">Cod: 008</p>
+                </div>
+            </div>
+            
+            <!-- Tiramisu -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>TIRAMISU CLASIC</h3>
+                    <p>Pișcoturi, mascarpone, cafea espresso, cacao</p>
+                    <p>TOPPING: Pudră de cacao</p>
+                    <p class="product-price">5 RON/BUC | 40 RON/KG</p>
+                    <p class="product-code">Cod: 009</p>
+                </div>
+            </div>
+            
+            <!-- Pavlova -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>PAVLOVA CU FRUCTE</h3>
+                    <p>Bezea crocantă, frișcă naturală, fructe de sezon</p>
+                    <p>TOPPING: Căpșuni, kiwi, afine</p>
+                    <p class="product-price">4 RON/BUC | 35 RON/KG</p>
+                    <p class="product-code">Cod: 010</p>
+                </div>
+            </div>
+            
+            <!-- Tartă cu mere -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1562007908-859b4ba9a1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>TARTĂ CU MERE ȘI SCORȚIȘOARĂ</h3>
+                    <p>Aluat fraged, mere caramelizate, scorțișoară</p>
+                    <p>TOPPING: Crustă crocantă și zahăr pudră</p>
+                    <p class="product-price">4 RON/BUC | 36 RON/KG</p>
+                    <p class="product-code">Cod: 011</p>
+                </div>
+            </div>
+            
+            <!-- Cozonac -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>COZONAC DE CRĂCIUN</h3>
+                    <p>Fraged, pufos și plin de nucă, cacao</p>
+                    <p class="product-price">40 RON/BUC</p>
+                    <p class="product-code">Cod: 012</p>
+                </div>
+            </div>
+            
+            <!-- Amandină -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>AMANDINĂ CLASICĂ</h3>
+                    <p>Blat pufos cu cacao, sirop aromat cu rom, cremă fină de unt și ciocolată</p>
+                    <p>TOPPING: Glazură de ciocolată și decor din frișcă sau cremă de cacao</p>
+                    <p class="product-price">5 RON/BUC | 40 RON/KG</p>
+                    <p class="product-code">Cod: 011</p>
+                </div>
+            </div>
+            
+            <!-- Pâine de casă -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>PÂINE DE CASĂ</h3>
+                    <p>Făină albă de grâu, apă, drojdie, sare, ulei vegetal</p>
+                    <p>TOPPING: Făină presărată</p>
+                    <p class="product-price">7 RON/BUC | 10 RON/KG</p>
+                    <p class="product-code">Cod: 012</p>
+                </div>
+            </div>
+            
+            <!-- Cinnamon rolls -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558319024-50d6d8e321c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>CINNAMON ROLLS</h3>
+                    <p>Aluat dulce dospit cu unt, zahăr brun și scorțișoară</p>
+                    <p>TOPPING: Glazură din cremă de brânză și vanilie</p>
+                    <p class="product-price">5 RON/BUC | 50 RON/KG</p>
+                    <p class="product-code">Cod: 013</p>
+                </div>
+            </div>
+            
+            <!-- Panettone -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://www.simplyrecipes.com/thmb/2D9qYr_1h6l_0vxJd6Y2pK5j9m4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2014__12__panettone-horiz-a-1600-90c68bec2a384e6e90b3c6b670c8c9a5.jpg');"></div>
+                <div class="product-info">
+                    <h3>PANETTONE</h3>
+                    <p>Aluat pufos dospit cu ouă, unt, zahăr, coajă de portocală confiată și stafide</p>
+                    <p>TOPPING: Zahăr pudră</p>
+                    <p class="product-price">35 RON/BUC | 50 RON/KG</p>
+                    <p class="product-code">Cod: 014</p>
+                </div>
+            </div>
+            
+            <!-- Biscuiți de ciocolată -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3>BISCUIȚI DE CIOCOLATĂ</h3>
+                    <p>Făină de grâu, unt, zahăr, ouă, bucăți de ciocolată neagră</p>
+                    <p>TOPPING: Fulgi de ciocolată</p>
+                    <p class="product-price">2.5 RON/BUC | 50 RON/KG</p>
+                    <p class="product-code">Cod: 015</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organigrama Section -->
+    <section id="organigrama" class="container">
+        <h2>Echipa Noastră</h2>
+        <div class="organigrama">
+            <div class="org-chart">
+                <!-- Administrator -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-position">ADMINISTRATOR</div>
+                        <div class="org-name">Podean Georgeta</div>
+                    </div>
+                </div>
+                
+                <!-- Manageri -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-position">MANAGER PRODUCȚIE</div>
+                        <div class="org-name">Stanusi Alexandra</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">MANAGER VÂNZĂRI</div>
+                        <div class="org-name">Francu Stefania</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">MANAGER VÂNZĂRI</div>
+                        <div class="org-name">Mihaltan Georgiana</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">RESPONSABIL FINANCIAR</div>
+                        <div class="org-name">Opincariu Simona</div>
+                    </div>
+                </div>
+                
+                <!-- Personal -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-position">PATISERIE</div>
+                        <div class="org-name">Fratila Mihai</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">PATISERIE</div>
+                        <div class="org-name">Ghisa Nicoleta</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">VÂNZĂTOR</div>
+                        <div class="org-name">Codarcea Kevyn</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">BRUTAR</div>
+                        <div class="org-name">Salistean Alexandru</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-position">BRUTAR</div>
+                        <div class="org-name">Fofeldea Stefan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="container">
+        <h2>Program de Lucru</h2>
+        <div class="program-section">
+            <table class="program-table">
+                <tr>
+                    <th>Ziua</th>
+                    <th>Orele</th>
+                </tr>
+                <tr>
+                    <td>Luni</td>
+                    <td>08:00 – 18:00</td>
+                </tr>
+                <tr>
+                    <td>Marți</td>
+                    <td>08:00 – 18:00</td>
+                </tr>
+                <tr>
+                    <td>Miercuri</td>
+                    <td>08:00 – 18:00</td>
+                </tr>
+                <tr>
+                    <td>Joi</td>
+                    <td>08:00 – 18:00</td>
+                </tr>
+                <tr>
+                    <td>Vineri</td>
+                    <td>08:00 – 19:00</td>
+                </tr>
+                <tr>
+                    <td>Sâmbătă</td>
+                    <td>09:00 – 16:00</td>
+                </tr>
+                <tr>
+                    <td>Duminică</td>
+                    <td>09:00 – 14:00</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Sebes, str. Viilor nr. 2</p>
+                    <p>Tel: 0770 430 581</p>
+                    <p>Email: arome.de.rai08@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Program</h3>
+                    <p>Luni-Vineri: 08:00 - 18:00</p>
+                    <p>Vineri: 08:00 - 19:00</p>
+                    <p>Sâmbătă: 09:00 - 16:00</p>
+                    <p>Duminică: 09:00 - 14:00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Urmărește-ne</h3>
+                    <p>Stai la curent cu ofertele noastre</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/example" class="social-link" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/example" class="social-link" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FE AROME DE RAI S.R.L. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
